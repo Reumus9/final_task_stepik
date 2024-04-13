@@ -13,9 +13,9 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture(scope="function")
 def browser(request):
-    browser_name = request.config.getoption("language")
+    browser_language = request.config.getoption("language")
     options = Options()
-    options.add_experimental_option('prefs', {'intl.accept_languages': browser_name})
+    options.add_experimental_option('prefs', {'intl.accept_languages': browser_language})
     browser = webdriver.Chrome(options=options)
     yield browser
     browser.quit()
